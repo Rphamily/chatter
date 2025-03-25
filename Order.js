@@ -4,8 +4,8 @@ export class Order {
         WELCOMING: () => {
           let aReturn = [];
           this.stateCur = this.OrderState.RESERVING;
-          aReturn.push("Welcome to Rich's Acton Rapid Test.");
-          aReturn.push("Would you like to reserve a rapid test kit?");
+          aReturn.push("Welcome to Ryan's Viet Resto.");
+          aReturn.push("Would you like to order Pho, Bun Bo Hue, or Bun Rieu?");
           return aReturn;
         },
         RESERVING: (sInput) => {
