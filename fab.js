@@ -34,32 +34,27 @@ class Blur {
     }
 }
 
-const suffix = (Math.random() * 100).toFixed().toString();
+const suffix = (Math.random()*100).toFixed().toString();
 
 document.querySelector("body").insertAdjacentHTML("beforeend", `
     <style>
-    #fab${suffix}, #modal${suffix} {
+    #fab${suffix}, #modal${suffix}{
         position: fixed;
         bottom: 1em;
         right: 1em;
         z-index: 1002;
     }
-    #clear${suffix} {
+    #clear${suffix}{
         position: absolute;
         top: -1em;
         right: 1em;
-        z-index: 1003;
     }
     </style>
     <button id="fab${suffix}">Tell me</button>
 `);
 
-document.querySelector(`#fab${suffix}`).addEventListener("click", () => {
-    const blur = new Blur(`
-        <div id="modal${suffix}">
-            <div><x-chat /></div>
-            <button id="clear${suffix}">Clear</button>
-        </div>
-    `);
+document.querySelector(`#fab${suffix}`).addEventListener("click", async evt => {
+    await customElements.whenDefined('x-chat');
+    const blur = new Blur(`<div id="modal${suffix}"><div><x-chat /></div><button id="clear${suffix}">clear</button></div>`);
     document.querySelector(`#clear${suffix}`).addEventListener("click", () => blur.close());
 });
