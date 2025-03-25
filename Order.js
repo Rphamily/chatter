@@ -15,11 +15,11 @@ export class Order {
         this.isOrderDone = true;
 
         if (sInput.toLowerCase().startsWith('pho')) {
-          aReturn.push(`Your Pho is reserved ${this.sFrom}`);
+          aReturn.push(`Your Pho is reserved on the number ${this.sFrom}`);
         } else if (sInput.toLowerCase().startsWith('bunbo')) {
-          aReturn.push(`Your Bun Bo Hue is reserved ${this.sFrom}`);
+          aReturn.push(`Your Bun Bo Hue is reserved on the number ${this.sFrom}`);
         } else if (sInput.toLowerCase().startsWith('bunrieu')) {
-          aReturn.push(`Your Bun Rieu is reserved ${this.sFrom}`);
+          aReturn.push(`Your Bun Rieu is reserved on the number ${this.sFrom}`);
         } else {
           aReturn.push("Thank you!");
           aReturn.push("Maybe next time you'll decide to order :)");
@@ -27,7 +27,7 @@ export class Order {
         }
 
         if (this.isOrderDone) {
-          aReturn.push(`Please pick it up at 123 Tidy St. at ${d.toTimeString()}`);
+          aReturn.push(`Please pick it up at 123 Laurier St. at ${d.toTimeString()}`);
         }
 
         return aReturn;
